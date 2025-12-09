@@ -5,4 +5,5 @@
     $cCartas = $mCartas->listar();
 
     echo json_encode($cCartas);
+    include "/../vistas/vCartas.js";
 ?>
