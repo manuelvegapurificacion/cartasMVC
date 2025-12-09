@@ -1,9 +1,18 @@
 <?php
     require_once __DIR__ . '/../modelo/mCartas.php';
 
-    $mCartas = new MCartas();
-    $cCartas = $mCartas->listar();
+    class CCartas {
 
-    echo json_encode($cCartas);
-    include "/../vistas/vCartas.js";
+        private $cartas;
+
+        public function __construct(){
+            $this->cartas = new MCartas();
+        }
+
+        function generarCartas(){
+            $this->cartas->listar();
+            include "/../vistas/vCartas.js";
+        }
+
+    }
 ?>

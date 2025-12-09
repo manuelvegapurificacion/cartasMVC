@@ -22,7 +22,10 @@
             INNER JOIN iconos ON cartas.id_icono = iconos.id_icono
             INNER JOIN eventos ON cartas.elimina_id_evento = eventos.id_evento';
             $resultado = $this->conexion->query($sql);
-            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $array = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            header("Content-Type: application/json");
+            echo json_encode($array);
+            exit();
         }
     }
 ?>
