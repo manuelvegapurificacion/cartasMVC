@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoJuego</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body id="bodyBosque">
+<div class="contenedor">
+    <img src="img/tierra.gif" alt="Planeta" class="mundo">
+    <!-- Barra de vida -->
+    <div class="barra-vida">
+        <div class="vida-restante"></div>
+        <div id="vida-numero"></div>
+    </div>
+
+    <!-- Problemas ambientales -->
+    <div class="problemas">
+        <div class="carta problema"></div>
+        <div class="carta problema"></div>
+    </div>
+
+    <!-- Información de carta -->
+    <div class="info-carta">
+        <div>
+            <p><b>Info</b></p>
+            <p>Pasa el ratón sobre un Evento para ver su descripción, o selecciona una carta para ver su informacion en detalle</p>
+        </div>
+    </div>
+
+    <!-- Ronda y turno -->
+    <div class="estado-ronda">
+        <p id="texto-ronda"></p>
+        <p id="texto-turno"></p>
+    </div>
+
+    <!-- Cartas del jugador -->
+    <div class="mano">
+        <div class="carta carta-mano"></div>
+        <div class="carta carta-mano"></div>
+        <div class="carta carta-mano"></div>
+        <div class="carta carta-mano"></div>
+        <div class="carta carta-mano"></div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="acciones">
+        <button class="boton-tablero jugar">Jugar Carta</button>
+        <button class="boton-tablero pasar">Pasar Turno</button>
+        <a href="zonas.html">
+            <button class="boton-tablero Salir">Salir del juego</button>
+        </a>
+    </div>
+</div>
+<script src="modelo/mCartas.js"></script>
+<script src="controladores/cCartas.js"></script>
+<script src="vistas/vCartas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

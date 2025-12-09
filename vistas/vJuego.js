@@ -3,7 +3,7 @@ let zonaSeleccionada = title;
 
 /* Un Array con todas las cartas seleccionadas actualmente para poder sacar su información en el panel central*/
 
-let cartasSeleccionadas = [];
+
 
 function filtradoDeElementos(zonaSeleccionada) {
     const cartasDeZona = cartas.filter(carta => carta.zona === zonaSeleccionada);
@@ -14,15 +14,14 @@ function filtradoDeElementos(zonaSeleccionada) {
 
 
 function mostrarElementos(cartas, eventos) {
-    const manoCartas = document.querySelector('.mano');
     const contenedorEventos = document.querySelector('.problemas');
-    const infoCarta = document.querySelector('.info-carta');
 
-    manoCartas.innerHTML = '';
+
+   
     contenedorEventos.innerHTML = '';
 
     /*Decidir cuantos eventos y cartas al principio y cada turno o ronda cuantas se añaden*/
-    const cartasAMostrar = cartas.slice(0,5); 
+    
     const eventosAMostrar = eventos.slice(0, 2);
 
     //------------------------------------Bucle para mostrar cartas----------------------------------

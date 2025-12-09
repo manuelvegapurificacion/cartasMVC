@@ -28,4 +28,8 @@
             exit();
         }
     }
+
+    $mcartas = new MCartas();
+    $mcartas->listar();
+    
 ?>

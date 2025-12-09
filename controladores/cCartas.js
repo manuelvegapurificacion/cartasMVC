@@ -1,7 +1,18 @@
 class CCartas {
 
-    constructor(){
-        let $cartas;
+    constructor(modelo, vista){
+        this.modelo = modelo;
+        this.vista = vista;
+        console.log('Controlador: Inicializado');
+    }
+
+    async cargarCartas(){
+        try{
+            const cartas = await this.modelo.obtenerCartas();
+            this.vista.mostrarElementos(cartas);
+        }catch(error){
+            this.vista.mostrarError('Fallo al cargar las cartas');
+        }
     }
 
 }
