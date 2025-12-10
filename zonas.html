@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Deckology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor-menu-zonas">
+        <header id="encabezado">
+            <h1 id="titulo-encabezado">Deckology</h1>
+            <nav id="menu-navegacion">
+                <a href="perfilUsuario.html">Perfil</a>
+                <a href="puntuaciones.html">Puntuaciones</a>
+                <a id="boton-sesion"></a>
+            </nav>
+        </header>
+
+        <main id="contenido-principal">
+            <img id="logo" src="../img/Logo.png" alt="Logo">
+            <h2 id="titulo-seleccion">Selecciona un modo de juego</h2>
+            <div id="boton-como-jugar">¿Cómo jugar?</div>
+
+            <section id="contenedor-tarjetas">
+                <a href="tableroCiudad.html" class="tarjeta">
+                    <img src="../img/ciudad.png" alt="Ciudad">
+                    <h3 class="titulo-tarjeta">Ciudad</h3>
+                </a>
+
+                <a href="tableroBosque.html" class="tarjeta">
+                    <img src="../img/Bosque.png" alt="Bosque">
+                    <h3 class="titulo-tarjeta">Bosque</h3>
+                </a>
+                
+
+                <a href="tableroMar.html" class="tarjeta">
+                    <img src="../img/Mar.png" alt="Mar">
+                    <h3 class="titulo-tarjeta">Mar</h3>
+                </a>
+
+                <a href="tableroDesierto.html" class="tarjeta">
+                    <img src="../img/Desierto.png" alt="Desierto">
+                    <h3 class="titulo-tarjeta">Desierto</h3>
+                </a>
+
+                <a href="tableroBosque.html" class="tarjeta">
+                    <img src="../img/Infinito.png" alt="Infinito">
+                    <h3 class="titulo-tarjeta">Modo Infinito</h3>
+                </a>
+            </section>
+
+            <!-- Estructura  Popup oculto -->
+        <div id="popup-reglas">
+            <div id="popup-contenido">
+                <p class="cerrar-popup">Cerrar</p>
+
+                <h2>¿Cómo se juega?</h2>
+
+                <p><strong>Objetivo:</strong> Mantener la salud del planeta.</p>
+
+                <h3>⚠️ Eventos</h3>
+                <p>
+                    Los eventos <strong>restaran vida cada turno</strong>.<br>
+                    Siguen activos hasta que los <strong>neutralices</strong> con la carta correcta.
+                    Apareceran cada <strong>X</strong> turnos.
+                </p>
+
+                <h3>🃏Cartas</h3>
+                <p>
+                    Las cartas sirven para <strong>eliminar eventos</strong> y para <strong>curar</strong>.<br>
+                    Cada carta indica <strong>qué evento neutraliza</strong>.<br>
+                    Aparte siempre curaran al planeta.<br>
+                    Tienes un <strong>límite de cartas en la mano de 5</strong>.
+                </p>
+
+                <h3>🔄 Turnos y Rondas</h3>
+                <p>Cada <strong> ronda </strong> serán <strong> 3 turnos</strong>.</p>
+
+                <h3>💡Consejos</h3>
+                <p>
+                    • Prioriza los eventos de mayor daño.<br>
+                    • No mal gastes cartas que necesites para neutralizar.<br>
+                    • Controla los turnos que faltan para la siguiente ronda.
+                </p>
+            </div>
+
+        </main>
+        <footer>
+            Creado por el Grupo 4
+        </footer>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

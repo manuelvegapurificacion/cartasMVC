@@ -9,7 +9,7 @@ class CCartas {
     async cargarCartas(){
         try{
             const cartas = await this.modelo.obtenerCartas();
-            this.vista.mostrarElementos(cartas);
+            this.vista.mostrarCartas(cartas);
         }catch(error){
             this.vista.mostrarError('Fallo al cargar las cartas');
         }

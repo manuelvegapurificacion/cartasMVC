@@ -1,45 +1,18 @@
 class Vista{
-    constructor(controlador){
+    constructor(controladorCartas, controladorEventos){
         this.mano = document.querySelector('.mano');
-        this.infoCarta = document.querySelector('.info-carta')
+        this.infoCarta = document.querySelector('.info-carta');
+        this.contenedorEventos = document.querySelector('.problemas');
+        this.cartasSeleccionadas = [];
+        this.controladorCartas = controladorCartas;
+        this.controladorEventos = controladorEventos;
+        //this.controladorCartas.cargarEventos();
+        //this.controladorCartas.cargarCartas();
     }
 
-    mostrarElementos(cartas){
+    mostrarCartas(cartas){
         this.mano.innerHTML = '';
         const cartasAMostrar = cartas.slice(0,5); 
-        let cartasSeleccionadas = [];
-        const actualizarPanelInfo = () => {
-
-            //Muestra el texto predeterminado del panel y sale de la función
-            if (cartasSeleccionadas.length === 0) {
-                this.infoCarta.innerHTML = `
-                <div>
-                    <p><b>Info</b></p>
-                    <p>Pasa el ratón sobre un Evento para ver su descripción, o selecciona una carta para ver su informacion en detalle</p>
-                </div>
-                `;
-                return;
-            }
-
-            //Variable vacía a la que añadirle / quitarle texto
-            let html = "";
-
-            //Recorro el array de las cartas. Añado un index para tener el índice del array para uso posterior
-            cartasSeleccionadas.forEach((carta, index) => {
-
-                //Añado la información a la variable html
-                html += `
-                <div>
-                        <p><b>${carta.titulo}</b></p>
-                        <p>${carta.info}</p>
-                        <p>Neutraliza: ${carta.nombreNeutraliza}</p>
-                </div>
-                `;
-               
-            });
-            //Muestro la información
-            this.infoCarta.innerHTML=html;
-        }
         
         cartasAMostrar.forEach(carta => {
         
@@ -68,14 +41,59 @@ class Vista{
 
                 if (levantada) {
                     cartaDiv.classList.add('carta-levantada'); // CSS hace que suba
-                    cartasSeleccionadas.push(carta); //Añado la carta al array
+                    this.cartasSeleccionadas.push(carta); //Añado la carta al array
                 } else {
                     cartaDiv.classList.remove('carta-levantada');
-                    cartasSeleccionadas = cartasSeleccionadas.filter(c => c.id !== carta.id); //Quito la carta del array
+                    this.cartasSeleccionadas = this.cartasSeleccionadas.filter(c => c.id_carta !== carta.id_carta); //Quito la carta del array
+                    console.log("Carta quitada", carta.id_carta)
                 }
 
                 //Función aparte para actualizar el panel central con la información de las cartas en el array
-                actualizarPanelInfo();
+                this.actualizarPanelInfo();
+            });
+        });
+    }
+
+    mostrarEventos(eventos){
+        this.contenedorEventos.innerHTML = '';
+        const eventosAMostrar = eventos.slice(0, 2);
+        eventosAMostrar.forEach(evento => {
+            console.log("mostrando eventoooooo en la vista " + evento.titulo);
+            const eventoDiv = document.createElement('div');
+            eventoDiv.classList.add('carta', 'problema');
+            const efectoTexto = evento.efecto + " de daño cada turno";
+
+            eventoDiv.innerHTML = `
+            <div>
+                <p class="titulo-carta">${evento.titulo}</p>
+                <p class="icono-carta">${evento.emoji}</p>
+            </div>
+                
+            `;
+            // <p class="efecto-numero">${efectoTexto}</p>
+            this.contenedorEventos.appendChild(eventoDiv);
+
+            eventoDiv.addEventListener('mouseover', () => {
+                this.infoCarta.innerHTML = `
+                <div>
+                    <p><b>${evento.titulo}</b></p>
+                    <p>${evento.info}</p>
+                </div>
+                `;
+            });
+
+            eventoDiv.addEventListener('mouseleave', () => {
+                if(this.cartasSeleccionadas.length===0){
+                    this.infoCarta.innerHTML = `
+                    <div>
+                            <p><b>Info</b></p>
+                            <p>Pasa el ratón sobre un Evento para ver su descripción, o selecciona una carta para ver su informacion en detalle</p>
+                    </div>
+                    `;
+                }else{
+                    this.actualizarPanelInfo();
+                }
+                
             });
         });
     }
@@ -83,4 +101,37 @@ class Vista{
     mostrarError(mensaje){
         this.infoCarta.innerHTML = `<p style="color: red;">Error: ${mensaje}</p>`;
     }
+
+    actualizarPanelInfo = () => {
+
+            //Muestra el texto predeterminado del panel y sale de la función
+            if (this.cartasSeleccionadas.length === 0) {
+                this.infoCarta.innerHTML = `
+                <div>
+                    <p><b>Info</b></p>
+                    <p>Pasa el ratón sobre un Evento para ver su descripción, o selecciona una carta para ver su informacion en detalle</p>
+                </div>
+                `;
+                return;
+            }
+
+            //Variable vacía a la que añadirle / quitarle texto
+            let html = "";
+
+            //Recorro el array de las cartas. Añado un index para tener el índice del array para uso posterior
+            this.cartasSeleccionadas.forEach((carta, index) => {
+
+                //Añado la información a la variable html
+                html += `
+                <div>
+                        <p><b>${carta.titulo}</b></p>
+                        <p>${carta.info}</p>
+                        <p>Neutraliza: ${carta.nombreNeutraliza}</p>
+                </div>
+                `;
+               
+            });
+            //Muestro la información
+            this.infoCarta.innerHTML=html;
+        }
 }
