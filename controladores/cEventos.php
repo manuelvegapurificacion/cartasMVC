@@ -9,8 +9,8 @@
             $this->eventos = new MEventos();
         }
 
-        function generarCartas(){
-            $this->cartas->listar();
+        function generarEventos(){
+            $this->eventos->listar();
             include "/../vistas/vEventos.js";
         }
     }

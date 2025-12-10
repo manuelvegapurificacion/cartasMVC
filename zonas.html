@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
+<body id="zonas">
     <div class="contenedor-menu-zonas">
         <header id="encabezado">
             <h1 id="titulo-encabezado">Deckology</h1>
@@ -18,36 +18,12 @@
         </header>
 
         <main id="contenido-principal">
-            <img id="logo" src="../img/Logo.png" alt="Logo">
+            <img id="logo" src="img/Logo.png" alt="Logo">
             <h2 id="titulo-seleccion">Selecciona un modo de juego</h2>
             <div id="boton-como-jugar">¿Cómo jugar?</div>
 
             <section id="contenedor-tarjetas">
-                <a href="tableroCiudad.html" class="tarjeta">
-                    <img src="../img/ciudad.png" alt="Ciudad">
-                    <h3 class="titulo-tarjeta">Ciudad</h3>
-                </a>
-
-                <a href="tableroBosque.html" class="tarjeta">
-                    <img src="../img/Bosque.png" alt="Bosque">
-                    <h3 class="titulo-tarjeta">Bosque</h3>
-                </a>
                 
-
-                <a href="tableroMar.html" class="tarjeta">
-                    <img src="../img/Mar.png" alt="Mar">
-                    <h3 class="titulo-tarjeta">Mar</h3>
-                </a>
-
-                <a href="tableroDesierto.html" class="tarjeta">
-                    <img src="../img/Desierto.png" alt="Desierto">
-                    <h3 class="titulo-tarjeta">Desierto</h3>
-                </a>
-
-                <a href="tableroBosque.html" class="tarjeta">
-                    <img src="../img/Infinito.png" alt="Infinito">
-                    <h3 class="titulo-tarjeta">Modo Infinito</h3>
-                </a>
             </section>
 
             <!-- Estructura  Popup oculto -->
@@ -90,6 +66,9 @@
             Creado por el Grupo 4
         </footer>
     </div>
-    <script type="module" src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="controladores/cZonas.js"></script>
+    <script src="modelo/mZonas.js"></script>
+    <script src="vistas/vZonas.js"></script>
 </body>
 </html>

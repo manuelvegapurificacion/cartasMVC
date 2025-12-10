@@ -1,4 +1,4 @@
-class Vista{
+class VistaCartas{
     constructor(controladorCartas, controladorEventos){
         this.mano = document.querySelector('.mano');
         this.infoCarta = document.querySelector('.info-carta');
