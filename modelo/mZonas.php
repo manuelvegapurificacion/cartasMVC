@@ -10,11 +10,11 @@
         public function listar() {
             $sql = "SELECT 
                         id_zona AS id_zona,
-                        nombre AS nombre
-                        -- imagenZona AS imagenZona,
-                        -- imagenCartas AS imagenCartas,
-                        -- imagenEventos AS imagenEventos,
-                        -- fondoZona AS fondoZona
+                        nombre AS nombre,
+                        imagenZona AS imagenZona,
+                        imagenCartas AS imagenCartas,
+                        imagenEventos AS imagenEventos,
+                        --fondoZona AS fondoZona
                     FROM zonas";
 
             $resultado = $this->conexion->query($sql);

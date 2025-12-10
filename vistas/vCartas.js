@@ -1,13 +1,32 @@
 class VistaCartas{
-    constructor(controladorCartas, controladorEventos){
+    constructor(controladorCartas, controladorEventos, controladorZonas){
         this.mano = document.querySelector('.mano');
         this.infoCarta = document.querySelector('.info-carta');
         this.contenedorEventos = document.querySelector('.problemas');
+        this.evento = document.querySelector('.problema');
+        this.carta = document.querySelector('.carta-mano');
         this.cartasSeleccionadas = [];
         this.controladorCartas = controladorCartas;
         this.controladorEventos = controladorEventos;
+        this.controladorZonas = controladorZonas
         //this.controladorCartas.cargarEventos();
         //this.controladorCartas.cargarCartas();
+    }
+
+    mostrarZonas(zonas){
+        //No muestra las zonas, sino los fondos. Tiene que llamarse así por el controlador.
+        //Las imágenes ahora mismo están estáticas! Tendrían que ser dinámicas y sacadas de la base de datos mediante id!
+        //Eso lo puedo hacer yo luego si quereis
+        const urlParams = new URLSearchParams(window.location.search);
+        const z = urlParams.get('z');
+        console.log(z);
+        console.log(zonas);
+        let zonaSeleccionada = zonas.find(zona => zona.id_zona == z);
+        console.log(zonaSeleccionada.nombre);
+        console.log(zonaSeleccionada.imagenEventos);
+        document.body.style.backgroundImage = zonaSeleccionada.fondoZona;
+        this.evento.style.backgroundImage = `url('../${zonaSeleccionada.imagenEventos}')`;
+        this.carta.style.backgroundImage = "url(../imagenes/cartas/cartaBosque.png)";
     }
 
     mostrarCartas(cartas){

@@ -12,6 +12,7 @@
         function generarZonas(){
             $this->zonas->listar();
             include "/../vistas/vZonas.js";
+            include "/../vistas/vCartas.js";
         }
     }
 
