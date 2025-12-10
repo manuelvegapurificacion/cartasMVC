@@ -26,7 +26,7 @@ class VistaCartas{
         console.log(zonaSeleccionada.imagenEventos);
         document.body.style.backgroundImage = zonaSeleccionada.fondoZona;
         this.evento.style.backgroundImage = `url('../${zonaSeleccionada.imagenEventos}')`;
-        this.carta.style.backgroundImage = "url(../imagenes/cartas/cartaBosque.png)";
+        this.carta.style.backgroundImage = `url('../${zonaSeleccionada.imagenCartas}')`;
     }
 
     mostrarCartas(cartas){
