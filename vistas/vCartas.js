@@ -6,6 +6,7 @@ class VistaCartas{
         this.evento = document.querySelector('.problema');
         this.carta = document.querySelector('.carta-mano');
         this.cartasSeleccionadas = [];
+        this.z = new URLSearchParams(window.location.search).get("z");
         this.controladorCartas = controladorCartas;
         this.controladorEventos = controladorEventos;
         this.controladorZonas = controladorZonas
@@ -13,15 +14,15 @@ class VistaCartas{
         //this.controladorCartas.cargarCartas();
     }
 
+    
+
     mostrarZonas(zonas){
         //No muestra las zonas, sino los fondos. Tiene que llamarse así por el controlador.
         //Las imágenes ahora mismo están estáticas! Tendrían que ser dinámicas y sacadas de la base de datos mediante id!
         //Eso lo puedo hacer yo luego si quereis
-        const urlParams = new URLSearchParams(window.location.search);
-        const z = urlParams.get('z');
-        console.log(z);
+        console.log(this.z);
         console.log(zonas);
-        let zonaSeleccionada = zonas.find(zona => zona.id_zona == z);
+        let zonaSeleccionada = zonas.find(zona => zona.id_zona == this.z);
         console.log(zonaSeleccionada.nombre);
         console.log(zonaSeleccionada.imagenEventos);
         document.body.style.backgroundImage = zonaSeleccionada.fondoZona;
@@ -31,6 +32,9 @@ class VistaCartas{
 
     mostrarCartas(cartas){
         this.mano.innerHTML = '';
+        console.log(cartas);
+        //Es muy probable que si pruebes esto con zonas que no sean la 1, no aparezcan cartas. Aún no estan en la BD, no es un error.
+        cartas = cartas.filter(carta => carta.zona == this.z);
         const cartasAMostrar = cartas.slice(0,5); 
         
         cartasAMostrar.forEach(carta => {
@@ -75,6 +79,7 @@ class VistaCartas{
 
     mostrarEventos(eventos){
         this.contenedorEventos.innerHTML = '';
+        eventos = eventos.filter(evento => evento.zona == this.z);
         const eventosAMostrar = eventos.slice(0, 2);
         eventosAMostrar.forEach(evento => {
             console.log("mostrando eventoooooo en la vista " + evento.titulo);

@@ -1,3 +1,19 @@
+<!-- 
+IMPORTANTE: Esto forma parte de vJuego (que está obsoleto) pero no está presente en vCartas porque es lógica del juego,
+diria yo. No toma nada de la base de datos. Lo he copiado aquí como recordatorio más que otra cosa, pero no está mal
+tenerlo aquí tampoco. Es lo único de vJuegos que no está en vCartas.
+
+const barraVida = document.querySelector('.vida-restante');
+let vidaActual = 100; // Vida inicial del planeta
+
+function actualizarVida(cambio) {
+    vidaActual += cambio;
+    if (vidaActual > 100) vidaActual = 100;
+    if (vidaActual < 0) vidaActual = 0;
+    barraVida.style.height = vidaActual + '%';
+    barraVida.textContent = vidaActual + '%';//Sustituir esto por una etiqueta nueva en el html y posicionarla encima de la barra
+} -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,12 +70,12 @@
     </div>
 </div>
 <script src="app.js"></script>
+<script src="controladores/cZonas.js"></script>
 <script src="controladores/cCartas.js"></script>
 <script src="controladores/cEventos.js"></script>
-<script src="controladores/cZonas.js"></script>
+<script src="modelo/mZonas.js"></script>
 <script src="modelo/mCartas.js"></script>
 <script src="modelo/mEventos.js"></script>
-<script src="modelo/mZonas.js"></script>
 <script src="vistas/vCartas.js"></script>
 
 </body>
