@@ -34,7 +34,9 @@ class VistaCartas{
         this.mano.innerHTML = '';
         console.log(cartas);
         //Es muy probable que si pruebes esto con zonas que no sean la 1, no aparezcan cartas. Aún no estan en la BD, no es un error.
-        cartas = cartas.filter(carta => carta.zona == this.z);
+        if(this.z!=5){
+            cartas = cartas.filter(carta => carta.zona == this.z);
+        }
         const cartasAMostrar = cartas.slice(0,5); 
         
         cartasAMostrar.forEach(carta => {
@@ -79,7 +81,9 @@ class VistaCartas{
 
     mostrarEventos(eventos){
         this.contenedorEventos.innerHTML = '';
-        eventos = eventos.filter(evento => evento.zona == this.z);
+        if(this.z!=5){
+            eventos = eventos.filter(evento => evento.zona == this.z);
+        }
         const eventosAMostrar = eventos.slice(0, 2);
         eventosAMostrar.forEach(evento => {
             console.log("mostrando eventoooooo en la vista " + evento.titulo);
